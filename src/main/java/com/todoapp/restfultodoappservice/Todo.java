@@ -1,6 +1,7 @@
 package com.todoapp.restfultodoappservice;
 
 import java.util.Date;
+import java.util.Objects;
 
 
 public class Todo {
@@ -60,6 +61,16 @@ public class Todo {
         isDone = done;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Todo)) return false;
+        Todo todo = (Todo) o;
+        return getId() == todo.getId();
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }
